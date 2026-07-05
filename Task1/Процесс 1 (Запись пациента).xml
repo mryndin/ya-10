@@ -1,0 +1,103 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram id="DFD1" name="Запись пациента">
+    <mxGraphModel dx="2054" dy="1111" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="patient" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" value="Пациент" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="reception" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" value="Приложение ресепшен" vertex="1">
+          <mxGeometry height="80" width="160" x="160" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="db_patients" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" value="БД пациентов (PostgreSQL)" vertex="1">
+          <mxGeometry height="80" width="160" x="757" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="db_journals" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" value="БД журналов записей" vertex="1">
+          <mxGeometry height="80" width="160" x="757" y="451" as="geometry" />
+        </mxCell>
+        <mxCell id="pep1" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;dashed=1;" value="Policy Enforcement Point (ABAC)" vertex="1">
+          <mxGeometry height="50" width="180" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="audit1" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;dashed=1;" value="Audit Log" vertex="1">
+          <mxGeometry height="50" width="120" x="431" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="mask1" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;dashed=1;" value="Data Masking (маскировка PII)" vertex="1">
+          <mxGeometry height="50" width="180" x="757" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="lineage" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;dashed=1;" value="Data Lineage" vertex="1">
+          <mxGeometry height="50" width="160" x="280" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="doctor_access" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=10;dashed=1;" value="RBAC: врачи видят только своих пациентов" vertex="1">
+          <mxGeometry height="40" width="220" x="280" y="600" as="geometry" />
+        </mxCell>
+        <mxCell id="tag1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#b85450;" value="Теги: PII, Sensitive, Retention_5y" vertex="1">
+          <mxGeometry height="20" width="200" x="757" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="tag2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#b85450;" value="Теги: PII, Medical, AuditRequired" vertex="1">
+          <mxGeometry height="20" width="220" x="757" y="541" as="geometry" />
+        </mxCell>
+        <mxCell id="enc_note1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#b85450;" value="🔒 Шифрование at‑rest (AES‑256)" vertex="1">
+          <mxGeometry height="20" width="160" x="757" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="enc_note2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#b85450;" value="🔒 Шифрование at‑rest (AES‑256)" vertex="1">
+          <mxGeometry height="20" width="160" x="580" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="flow1" edge="1" parent="1" source="patient" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="reception" value="Данные пациента (ФИО, телефон)">
+          <mxGeometry relative="1" x="-0.3077" y="-20" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="flow2" edge="1" parent="1" source="reception" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="db_patients" value="Сохранение профиля">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="flow3" edge="1" parent="1" source="reception" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="db_journals" value="Запись к специалисту">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sec1" edge="1" parent="1" source="pep1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="reception" value="Проверка прав (роль &#39;ресепшен&#39;)">
+          <mxGeometry relative="1" x="0.0508" y="-30" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="130" y="130" />
+              <mxPoint x="360" y="130" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sec2" edge="1" parent="1" source="audit1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="reception" value="Логирование действия">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sec3" edge="1" parent="1" source="mask1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="db_patients" value="Маскировка PII при выводе">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sec4" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" value="Отслеживание изменений">
+          <mxGeometry relative="1" x="0.4795" y="-39" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="360" y="481" />
+              <mxPoint x="360" y="161" />
+            </Array>
+            <mxPoint x="360" y="521" as="sourcePoint" />
+            <mxPoint x="757" y="161" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sec5" edge="1" parent="1" source="lineage" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="db_journals" value="Отслеживание изменений">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="360" y="480" />
+              <mxPoint x="360" y="360" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lock1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontColor=#b85450;" value="🔒 TLS" vertex="1">
+          <mxGeometry height="20" width="60" x="160" y="200" as="geometry" />
+        </mxCell>
+        <mxCell id="lock2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontColor=#b85450;" value="🔒 шифрование канала" vertex="1">
+          <mxGeometry height="20" width="80" x="440" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="lock3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontColor=#b85450;" value="🔒 шифрование канала" vertex="1">
+          <mxGeometry height="20" width="80" x="440" y="300" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

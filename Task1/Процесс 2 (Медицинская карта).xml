@@ -1,0 +1,91 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram id="DFD2" name="Медицинская карта">
+    <mxGraphModel dx="2054" dy="1111" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="doctor" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" value="Врач" vertex="1">
+          <mxGeometry height="60" width="120" x="520" y="319" as="geometry" />
+        </mxCell>
+        <mxCell id="doctor_app" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" value="Приложение врача" vertex="1">
+          <mxGeometry height="80" width="160" x="280" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="s3" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" value="Озеро данных (S3)" vertex="1">
+          <mxGeometry height="80" width="180" x="767" y="179" as="geometry" />
+        </mxCell>
+        <mxCell id="versioning" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;dashed=1;" value="Контроль версий (хеши)" vertex="1">
+          <mxGeometry height="40" width="180" x="767" y="319" as="geometry" />
+        </mxCell>
+        <mxCell id="pep2" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;dashed=1;" value="Policy Enforcement Point (ABAC)" vertex="1">
+          <mxGeometry height="50" width="180" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="audit2" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;dashed=1;" value="Audit Log" vertex="1">
+          <mxGeometry height="50" width="120" x="280" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="mask2" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;dashed=1;" value="Data Masking (для неавторизованных)" vertex="1">
+          <mxGeometry height="50" width="190" x="767" y="69" as="geometry" />
+        </mxCell>
+        <mxCell id="lab" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" value="Лаборатория (внешняя)" vertex="1">
+          <mxGeometry height="60" width="140" x="40" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="api_gw" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="API-шлюз (HTTPS, OAuth2)" vertex="1">
+          <mxGeometry height="60" width="180" x="280" y="686" as="geometry" />
+        </mxCell>
+        <mxCell id="tag3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#b85450;" value="Теги: Medical, Sensitive, Retention_10y" vertex="1">
+          <mxGeometry height="20" width="240" x="767" y="139" as="geometry" />
+        </mxCell>
+        <mxCell id="enc_note3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#b85450;" value="🔒 Шифрование SSE‑KMS" vertex="1">
+          <mxGeometry height="20" width="180" x="767" y="269" as="geometry" />
+        </mxCell>
+        <mxCell id="access_note" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;fontSize=10;fontColor=#b85450;" value="Доступ только лечащему врачу (ABAC)" vertex="1">
+          <mxGeometry height="20" width="200" x="280" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="f1" edge="1" parent="1" source="doctor" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="doctor_app" value="Ввод данных">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f2" edge="1" parent="1" source="doctor_app" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="s3" value="Сохранение файлов">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f3" edge="1" parent="1" source="lab" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="api_gw" value="Результаты анализов">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="f4" edge="1" parent="1" source="api_gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="s3" value="Загрузка в озеро">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sec6" edge="1" parent="1" source="pep2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="doctor_app" value="Проверка прав (лечащий врач)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sec7" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" value="Логирование доступа">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="340" y="99" as="sourcePoint" />
+            <mxPoint x="360" y="179" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="sec8" edge="1" parent="1" source="mask2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="s3" value="Маскировка для неавторизованных">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sec9" edge="1" parent="1" source="versioning" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="s3" value="Контроль версий">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sec10" edge="1" parent="1" source="pep2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="api_gw" value="JWT, проверка ролей">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="130" y="100" />
+              <mxPoint x="130" y="450" />
+              <mxPoint x="280" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="lock4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontColor=#b85450;" value="🔒 TLS" vertex="1">
+          <mxGeometry height="20" width="60" x="360" y="289" as="geometry" />
+        </mxCell>
+        <mxCell id="lock5" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontColor=#b85450;" value="🔒 HTTPS" vertex="1">
+          <mxGeometry height="20" width="60" x="181" y="510" as="geometry" />
+        </mxCell>
+        <mxCell id="lock6" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontColor=#b85450;" value="🔒 шифрование канала" vertex="1">
+          <mxGeometry height="20" width="80" x="440" y="666" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
