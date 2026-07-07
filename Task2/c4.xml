@@ -1,0 +1,237 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram id="C4_ToBe" name="C4 Container - Target Architecture">
+    <mxGraphModel dx="2054" dy="1111" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="patient" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" value="Пациент" vertex="1">
+          <mxGeometry height="60" width="120" x="20" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="employee" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" value="Сотрудник&lt;br&gt;(ресепшен/врач/кассир/бухгалтер/склад)" vertex="1">
+          <mxGeometry height="70" width="140" x="20" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="lab_ext" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" value="Лаборатория&lt;br&gt;(внешняя)" vertex="1">
+          <mxGeometry height="60" width="120" x="1020" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_gw_ext" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" value="Платёжный шлюз&lt;br&gt;(внешний)" vertex="1">
+          <mxGeometry height="60" width="120" x="1020" y="380" as="geometry" />
+        </mxCell>
+        <mxCell id="dpo" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=12;fontStyle=1;" value="DPO (Data Protection Officer)" vertex="1">
+          <mxGeometry height="60" width="140" x="20" y="680" as="geometry" />
+        </mxCell>
+        <mxCell id="system_boundary" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#666666;strokeWidth=2;dashed=1;fontSize=14;fontStyle=1;align=left;verticalAlign=top;spacing=10;" value="Медикаменте (Система управления данными)" vertex="1">
+          <mxGeometry height="720" width="800" x="180" y="80" as="geometry" />
+        </mxCell>
+        <mxCell id="api_gw" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;" value="API Gateway&lt;br&gt;(Kong / Spring Cloud)" vertex="1">
+          <mxGeometry height="70" width="160" x="220" y="140" as="geometry" />
+        </mxCell>
+        <mxCell id="iam" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;dashed=1;" value="IAM (Identity &amp; Access Management)&lt;br&gt;RBAC / ABAC / MFA" vertex="1">
+          <mxGeometry height="60" width="220" x="548" y="109" as="geometry" />
+        </mxCell>
+        <mxCell id="ms_patient" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="Сервис пациентов" vertex="1">
+          <mxGeometry height="50" width="120" x="220" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="ms_appointment" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="Сервис записей" vertex="1">
+          <mxGeometry height="50" width="120" x="370" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="ms_medical" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="Сервис мед. карт" vertex="1">
+          <mxGeometry height="50" width="120" x="520" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="ms_payment" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="Сервис платежей" vertex="1">
+          <mxGeometry height="50" width="120" x="670" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="ms_lab" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="Сервис лаборатории" vertex="1">
+          <mxGeometry height="50" width="120" x="820" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="ms_notification" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="Сервис уведомлений" vertex="1">
+          <mxGeometry height="50" width="120" x="220" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="ms_analytics" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;" value="Сервис аналитики" vertex="1">
+          <mxGeometry height="50" width="120" x="370" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="consent_mgr" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;dashed=1;" value="Consent &amp; Policy Manager&lt;br&gt;(согласия, политики, Retention)" vertex="1">
+          <mxGeometry height="60" width="200" x="220" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="masking_layer" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;dashed=1;" value="Data Masking &amp; Anonymization&lt;br&gt;(маскирование, обезличивание, токенизация)" vertex="1">
+          <mxGeometry height="60" width="220" x="460" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="audit_layer" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;dashed=1;" value="Audit &amp; Data Lineage&lt;br&gt;(аудит, происхождение данных)" vertex="1">
+          <mxGeometry height="60" width="200" x="720" y="470" as="geometry" />
+        </mxCell>
+        <mxCell id="kms" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;dashed=1;" value="KMS (Key Management)&lt;br&gt;управление ключами шифрования" vertex="1">
+          <mxGeometry height="50" width="220" x="460" y="580" as="geometry" />
+        </mxCell>
+        <mxCell id="db_operational" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" value="Операционные БД&lt;br&gt;(PostgreSQL)" vertex="1">
+          <mxGeometry height="70" width="120" x="220" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="data_lake" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" value="Озеро данных (Data Lake)&lt;br&gt;(обезличенные данные)" vertex="1">
+          <mxGeometry height="70" width="140" x="370" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="data_marts" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" value="Витрины данных&lt;br&gt;(агрегированные)" vertex="1">
+          <mxGeometry height="70" width="130" x="540" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="audit_storage" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=11;" value="Хранилище аудита&lt;br&gt;(WORM)" vertex="1">
+          <mxGeometry height="70" width="130" x="710" y="660" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_patient_api" edge="1" parent="1" source="patient" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="api_gw" value="HTTPS (JWT)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_employee_api" edge="1" parent="1" source="employee" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="api_gw" value="HTTPS (MFA)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_api_iam" edge="1" parent="1" source="api_gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="iam" value="Проверка токена">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_api_ms_patient" edge="1" parent="1" source="api_gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="ms_patient" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_api_ms_appointment" edge="1" parent="1" source="api_gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="ms_appointment" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_api_ms_medical" edge="1" parent="1" source="api_gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="ms_medical" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_api_ms_payment" edge="1" parent="1" source="api_gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="ms_payment" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_api_ms_lab" edge="1" parent="1" source="api_gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="ms_lab" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="200" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_api_ms_notification" edge="1" parent="1" source="api_gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="ms_notification" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_api_ms_analytics" edge="1" parent="1" source="api_gw" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="ms_analytics" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_ms_db" edge="1" parent="1" source="ms_patient" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="db_operational" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="380" />
+              <mxPoint x="280" y="620" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_ms_lake" edge="1" parent="1" source="ms_patient" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;dashed=1;" target="data_lake" value="Kafka (асинхронно)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="330" y="330" />
+              <mxPoint x="510" y="330" />
+              <mxPoint x="510" y="380" />
+              <mxPoint x="440" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_analytics_marts" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="430" y="435" />
+              <mxPoint x="700" y="435" />
+              <mxPoint x="700" y="680" />
+            </Array>
+            <mxPoint x="430" y="410" as="sourcePoint" />
+            <mxPoint x="670" y="680" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_lab_ext" edge="1" parent="1" source="ms_lab" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="lab_ext" value="HTTPS (JWT)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_payment_ext" edge="1" parent="1" source="ms_payment" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="payment_gw_ext" value="HTTPS (TLS)">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="730" y="410" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_consent_ms" edge="1" parent="1" source="consent_mgr" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="ms_patient" value="Проверка согласий">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="320" y="390" />
+              <mxPoint x="240" y="390" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_consent_ms2" edge="1" parent="1" source="consent_mgr" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="ms_medical" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_masking_api" edge="1" parent="1" source="masking_layer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="api_gw" value="Маскирование на выходе">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_masking_lake" edge="1" parent="1" source="masking_layer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="data_lake" value="Обезличивание при загрузке">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_audit_api" edge="1" parent="1" source="audit_layer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="api_gw" value="Логирование запросов">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="820" y="560" />
+              <mxPoint x="300" y="560" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_audit_storage" edge="1" parent="1" source="audit_layer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="audit_storage" value="Сохранение логов">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="820" y="595" />
+              <mxPoint x="750" y="595" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_audit_dpo" edge="1" parent="1" source="audit_layer" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="dpo" value="Оповещения DPO">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="780" />
+              <mxPoint x="90" y="780" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="edge_kms_db" edge="1" parent="1" source="kms" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="db_operational" value="Управление ключами">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_kms_lake" edge="1" parent="1" source="kms" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="data_lake" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="edge_iam_consent" edge="1" parent="1" source="iam" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="consent_mgr" value="Политики доступа">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="510" y="450" />
+              <mxPoint x="390" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="note_pbD" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;spacing=5;" value="Privacy by Design встроен в архитектуру:&lt;br&gt;• Proactive not reactive&lt;br&gt;• Privacy as default&lt;br&gt;• End-to-end security&lt;br&gt;• Visibility &amp; transparency" vertex="1">
+          <mxGeometry height="80" width="240" x="220" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="note_152fz" parent="1" style="shape=note;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;align=left;spacing=5;" value="Соответствие 152-ФЗ:&lt;br&gt;• Шифрование ПДн&lt;br&gt;• Разграничение доступа&lt;br&gt;• Аудит операций&lt;br&gt;• Уничтожение по сроку" vertex="1">
+          <mxGeometry height="80" width="200" x="500" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="lock1" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontColor=#b85450;" value="🔒 TLS" vertex="1">
+          <mxGeometry height="20" width="60" x="140" y="320" as="geometry" />
+        </mxCell>
+        <mxCell id="lock2" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontColor=#b85450;" value="🔒 TLS" vertex="1">
+          <mxGeometry height="20" width="60" x="140" y="520" as="geometry" />
+        </mxCell>
+        <mxCell id="lock3" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontColor=#b85450;" value="🔒 HTTPS" vertex="1">
+          <mxGeometry height="20" width="60" x="900" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="lock4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontColor=#b85450;" value="🔒 TLS" vertex="1">
+          <mxGeometry height="20" width="60" x="900" y="390" as="geometry" />
+        </mxCell>
+        <mxCell id="enc_db" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=9;fontColor=#b85450;" value="🔒 шифрование at-rest" vertex="1">
+          <mxGeometry height="15" width="120" x="220" y="735" as="geometry" />
+        </mxCell>
+        <mxCell id="enc_lake" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=9;fontColor=#b85450;" value="🔒 шифрование at-rest" vertex="1">
+          <mxGeometry height="15" width="140" x="370" y="735" as="geometry" />
+        </mxCell>
+        <mxCell id="enc_marts" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=9;fontColor=#b85450;" value="🔒 шифрование at-rest" vertex="1">
+          <mxGeometry height="15" width="130" x="540" y="735" as="geometry" />
+        </mxCell>
+        <mxCell id="enc_audit" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=9;fontColor=#b85450;" value="🔒 шифрование at-rest" vertex="1">
+          <mxGeometry height="15" width="130" x="710" y="735" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

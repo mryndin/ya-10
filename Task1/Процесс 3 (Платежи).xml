@@ -1,0 +1,85 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0">
+  <diagram id="DFD3" name="Платежи и бухгалтерия">
+    <mxGraphModel dx="2054" dy="1111" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="cashier" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" value="Кассир" vertex="1">
+          <mxGeometry height="60" width="120" x="240" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="kkm" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=14;fontStyle=1;" value="ККМ" vertex="1">
+          <mxGeometry height="80" width="120" x="280" y="180" as="geometry" />
+        </mxCell>
+        <mxCell id="bs" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;fontStyle=1;" value="1С:Бухгалтерия (клиент-сервер)" vertex="1">
+          <mxGeometry height="80" width="200" x="687" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="payment_db" parent="1" style="shape=cylinder;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;fontSize=12;" value="БД платежей (защищённая)" vertex="1">
+          <mxGeometry height="80" width="180" x="687" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="accountant" parent="1" style="shape=ellipse;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;" value="Бухгалтер" vertex="1">
+          <mxGeometry height="60" width="120" x="40" y="500" as="geometry" />
+        </mxCell>
+        <mxCell id="pep3" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;dashed=1;" value="Policy Enforcement Point (ABAC)" vertex="1">
+          <mxGeometry height="50" width="180" x="40" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="audit3" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;dashed=1;" value="Audit Log" vertex="1">
+          <mxGeometry height="50" width="120" x="280" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="mask3" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;dashed=1;" value="Data Masking (номер карты)" vertex="1">
+          <mxGeometry height="50" width="180" x="687" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="twofa" parent="1" style="shape=rectangle;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;fontSize=11;dashed=1;" value="Двухфакторная аутентификация" vertex="1">
+          <mxGeometry height="40" width="180" x="280" y="620" as="geometry" />
+        </mxCell>
+        <mxCell id="tag4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#b85450;" value="Теги: Financial, PII (маскировка)" vertex="1">
+          <mxGeometry height="20" width="220" x="687" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="tag5" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;fontSize=10;fontColor=#b85450;" value="Теги: Financial, Retention_7y" vertex="1">
+          <mxGeometry height="20" width="200" x="687" y="330" as="geometry" />
+        </mxCell>
+        <mxCell id="enc_note4" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#b85450;" value="🔒 Шифрование at‑rest" vertex="1">
+          <mxGeometry height="20" width="200" x="687" y="250" as="geometry" />
+        </mxCell>
+        <mxCell id="enc_note5" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=10;fontColor=#b85450;" value="🔒 Шифрование at‑rest" vertex="1">
+          <mxGeometry height="20" width="180" x="687" y="450" as="geometry" />
+        </mxCell>
+        <mxCell id="p1" edge="1" parent="1" source="cashier" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="kkm" value="Данные платежа">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p2" edge="1" parent="1" source="kkm" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="bs" value="REST API (TLS)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p3" edge="1" parent="1" source="bs" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="payment_db" value="Запись в БД">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="p4" edge="1" parent="1" source="accountant" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#666666;fontSize=10;" target="bs" value="Доступ">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sec11" edge="1" parent="1" source="pep3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="kkm" value="Проверка прав (кассир)">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sec12" edge="1" parent="1" source="audit3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="kkm" value="Логирование">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sec13" edge="1" parent="1" source="mask3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="payment_db" value="Маскировка номера карты">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sec14" edge="1" parent="1" source="twofa" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="accountant" value="2FA для бухгалтера">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="sec15" edge="1" parent="1" source="pep3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=blockThin;strokeColor=#b85450;fontSize=10;dashed=1;" target="accountant" value="Проверка роли">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="lock7" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontColor=#b85450;" value="🔒 TLS" vertex="1">
+          <mxGeometry height="20" width="60" x="220" y="290" as="geometry" />
+        </mxCell>
+        <mxCell id="lock8" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontColor=#b85450;" value="🔒 TLS (REST)" vertex="1">
+          <mxGeometry height="20" width="80" x="400" y="190" as="geometry" />
+        </mxCell>
+        <mxCell id="lock9" parent="1" style="text;html=1;strokeColor=none;fillColor=none;align=center;fontSize=12;fontColor=#b85450;" value="🔒 шифрование" vertex="1">
+          <mxGeometry height="20" width="80" x="420" y="490" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
